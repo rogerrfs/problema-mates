@@ -1,5 +1,25 @@
 #!/usr/bin/env python3
 
+def main_text():
+    return """
+ _   _                    _____              
+| \ | | _   _  _ __ ___  |_   _| _ __   __ _ 
+|  \| || | | || '_ ` _ \   | |  | '__| / _` |
+| |\  || |_| || | | | | |  | |  | |   | (_| |
+|_| \_| \__,_||_| |_| |_|  |_|  |_|    \__, |
+                                       |___/ 
+                       
+                        |---------------------|
+                        | Fet per Roger Fibla |
+                        |---------------------|
+
+Aquest programa és per trobar en quina fila es
+trobaria un nombre selecionat posicionat en un
+triangle.
+
+\033[1;3mhttps://github.com/rogerrfs/problema-mates\033[0m
+    """
+    
 def find_line(num):
         
     # Número
@@ -30,26 +50,34 @@ def find_line(num):
     # Retornar el número de línea
     return f"{l}\n"
 
-
-while True:
-    
-    print("Selecciona un número ('q' per tancar, 'info' per mostrar la informació del programa)")
-    input_num = input(">> ")
-    
-    if input_num == 'q':
-        print("\nBye!")
-        quit()
+def main():
+    while True:
         
-    elif input_num == 'info':
-        print(
-    """
-Hola
-    """
-        )
-    
-    else:
-        i_n = int(input_num)
+        print("Selecciona un número ('q' per tancar, 'info' per mostrar la informació del programa)")
+        input_num = input(">> ")
+        
+        if input_num == 'q':
+            print("\Adéu!")
+            quit()
+            
+        elif input_num == 'info':
+            print(main_text())
+        
+        elif input_num == "":
+            quit()
+            
+        else:
+            i_n = int(input_num)
 
-        print(find_line(i_n))
+            if i_n <= 0:
+                quit()
+                
+            else:
+                print(f"El nombre {i_n} es troba a la línea: {find_line(i_n)}")
+
+#################################################################################
+#################################################################################
 
 
+if __name__ == "__main__":
+    main()
